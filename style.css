@@ -1,0 +1,206 @@
+:root {
+  /* Zanyar Pet & General Tokens */
+  --primary-pet: #2D4C5A;
+  --accent-pet: #A3C9A8;
+  
+  /* Inner Battle - Adventure/Earthy Green Dark Mode */
+  --inner-primary: #8BA888; /* Earthy Sage Green */
+  --inner-accent: #4A5D48;  /* Deep Forest Green */
+  --inner-bg: #0D0F0D;      /* Near Black Moss */
+  --inner-glass: rgba(139, 168, 136, 0.05);
+  --inner-text: #E8EDE7;
+  --inner-text-muted: #7A8579;
+
+  /* Global */
+  --white: #FFFFFF;
+  --font-heading: 'Outfit', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: #F8F9F7;
+  color: #1A1A1A;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  transition: var(--transition);
+}
+
+/* Dark Theme for Inner Battle */
+body.dark-mode {
+  background-color: var(--inner-bg);
+  color: var(--inner-text);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+}
+
+body.dark-mode .glass-card {
+  background: var(--inner-glass);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.cta-button {
+  display: inline-block;
+  background-color: var(--inner-primary);
+  color: #000;
+  padding: 16px 32px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 700;
+  text-align: center;
+  transition: var(--transition);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.8rem;
+}
+
+.cta-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(197, 161, 92, 0.4);
+}
+
+.hover-lift {
+  transition: var(--transition);
+}
+
+.hover-lift:hover {
+  transform: translateY(-8px);
+}
+
+.container {
+  max-width: 100%;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+
+@media (min-width: 600px) {
+  .container { max-width: 480px; }
+}
+
+/* Pricing Section */
+.pricing-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.price-card {
+  padding: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.price-card.featured {
+  border: 2px solid var(--primary-pet);
+  background: white;
+}
+
+.badge {
+  position: absolute;
+  top: 12px;
+  right: -30px;
+  background: var(--primary-pet);
+  color: white;
+  padding: 4px 40px;
+  transform: rotate(45deg);
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+/* Testimonials */
+.testimonial-card {
+  padding: 20px;
+  margin-bottom: 16px;
+  font-style: italic;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 12px;
+  font-style: normal;
+  font-weight: 600;
+}
+
+.author-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #EEE;
+}
+
+/* FAQ */
+.faq-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.faq-item {
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-top: 8px;
+}
+
+.faq-item.open .faq-answer {
+  max-height: 200px;
+}
+
+.faq-item.open .faq-icon {
+  transform: rotate(45deg);
+}
+
+.faq-icon {
+  transition: transform 0.3s ease;
+}
+
+/* Inner Battle Specific - dark mode overrides if needed */
+body.dark-mode .price-card {
+  border-color: rgba(197, 161, 92, 0.2);
+}
+
+body.dark-mode .price-card.featured {
+  border-color: var(--inner-primary);
+  background: rgba(197, 161, 92, 0.05);
+}
+
+body.dark-mode .badge {
+  background: var(--inner-primary);
+  color: #000;
+}
+
+body.dark-mode .author-img {
+  background: #222;
+}
